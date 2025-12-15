@@ -13,8 +13,8 @@
 - POST /api/auth/login
 
 ### User
-- GET /api/user/me
-- PUT /api/user/me
+- GET /api/user/profile
+- PUT /api/user/profile
 
 ## Setup
 npm install
