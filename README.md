@@ -15,6 +15,7 @@
 ### User
 - GET /api/user/profile
 - PUT /api/user/profile
+- DELETE /api/user/profile
 
 ## Setup
 npm install
