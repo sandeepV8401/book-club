@@ -49,12 +49,19 @@ const loginUser = async (req, res) => {
     if (!user) {
       return res.status(400).json({ success: false, message: "Invalid Email" });
     }
+    if (user.isDeleted) {
+      return res.status(403).json({
+        success: false,
+        message: "Account has been deleted",
+      });
+    }
     const isMatchPassword = bcrypt.compare(password, user.password);
     if (!isMatchPassword) {
       return res
         .status(400)
         .json({ success: false, message: "Incorrect Password" });
     }
+
     const token = generateToken(user._id);
     res.status(200).json({
       success: true,
